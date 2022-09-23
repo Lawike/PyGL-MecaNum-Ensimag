@@ -33,3 +33,16 @@ should play one of the default base scenarios.
 ### Making your own scenarios
 
 The examples of the file `scene.py` are quite self explanatory. 
+
+
+### Comment qu'on fait
+
+Classe Square 2D
+    On fait une classe avec la description d'un carré en 2D
+    Soit on défini une position absolue pour chaque vertex
+    Soit on part sur une pos relative (plus simple pour les calculs après) on définit juste le centre et on calcul.
+    On doit calculer M (la matrice) et J (le moment d'inertie)
+    (vertex, longueur...)
+
+Classe RigidBody
+    On doit décrire xg et theta

@@ -34,7 +34,7 @@ def main():
     # Loading the scene
     
     #indexedTest(viewer)
-    dynamicTest(viewer)
+    pendulumTest(viewer)
     #rodTest(viewer)
     
     # Main loop

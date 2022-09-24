@@ -52,40 +52,27 @@ def indexedTest(viewer):
     # Add it to the list of objects to render
     viewer.addRenderable(squareMeshRenderable)
 
-def dynamicTest(viewer):
-    """
-    @brief Demonstration for a rendering of a rod object
-           Specific case, as a rod is essentialy a line, we
-           need to generate a mesh over it to git it a thickness
-           + demonstration of the scaling matrix for the rendering
-    """
-    positions = np.array([-1., 1.,
-                          -0.5, -0.25],
-                         np.float64)
-    colours = np.array([1., 0., 0.,
-                        0., 1., 0.,])
 
+def pendulumTest(viewer):
+    """
+    @brief Demonstration for a rendering of a swinging pendulum
+    """
+
+    positions = np.array([0., 0.,      # x0, y0
+                          0., 0.],     # x1, y1
+                          np.float64)
+
+    colours = np.array([1.,  0.,  1.,  # (r, g, b) for pendulum's pivot
+                        0.5, 0.5, 1.]) # (r, g, b) for pendulum's bob
+
+    # Creating the rod
     rod = Rod2D(positions, colours)
-    rodRenderable = Rod2DRenderable(rod, thickness = 0.005)
-    # viewer.addRenderable(rodRenderable)
-    
-    positionsScaled = np.array([0., 1.,
-                                0.5, -0.25],
-                               np.float64)
-    rodScaled = Rod2D(positionsScaled, colours)
+    rodRenderable = Rod2DRenderable(rod, thickness = 0.01)
+    viewer.addRenderable(rodRenderable)
 
-    rodRenderableScaled = Rod2DRenderable(rodScaled, thickness = 0.005)
-    rodRenderableScaled.modelMatrix[0, 0] = 2.   # scale in X
-    rodRenderableScaled.modelMatrix[1, 1] = 0.75 # scale in Y
-    viewer.addRenderable(rodRenderableScaled)
-
-
-    # Create a dynamic system
-    dyn = PendulumDynamicSystem(rodScaled)
-    # And add it to the viewer
-    # Each frame will perform a call to the 'step' method of the viewer
-    viewer.addDynamicSystem(dyn)
-    
+    # Creating the pendulum
+    pendulum = PendulumDynamicSystem(rod)
+    viewer.addDynamicSystem(pendulum)
 
 
 def rodTest(viewer):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 #
 # This file is part of SimulationTeachingElan, a python code used for teaching at Elan Inria.
 #
@@ -59,17 +59,18 @@ class PendulumDynamicSystem(AbstractDynamicSystem):
         self.theta += self.h * self.thetaDot
         self.thetaDot += self.h * -(self.g/self.l) * np.sin(oldTheta)
 
-        # Data Visu
+        # Data visualization
         self.i += 1
+        sampleSize = 1000
         self.thetas.append(self.theta)
-        indexes = [j for j in range(1000)]
-        if self.i == 1000:
+        indexes = [j for j in range(sampleSize)]
+        if self.i == sampleSize:
             fig, ax = plt.subplots()
             ax.plot(indexes, self.thetas)
-            plt.show();
+            plt.show()
 
-        # Energy calcul
+        # Energy calculation
         self.cin = 1/2 * self.M * np.power((self.l * self.thetaDot), 2)
         self.pot = self.M * self.g * (- np.cos(self.theta) * self.l)
         self.meca = self.cin + self.pot
-        print(self.meca)
+        # print(self.meca)

@@ -32,10 +32,10 @@ def main():
                   bgColor = np.array([0.4, 0.4, 0.4]))
 
     # Loading the scene
-    
     #indexedTest(viewer)
-    pendulumTest(viewer)
+    #pendulumTest(viewer)
     #rodTest(viewer)
+    spiningSquare(viewer)
     
     # Main loop
     viewer.run()

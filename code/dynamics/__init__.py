@@ -18,3 +18,4 @@
 from dynamics.abstract_dynamic_system import *
 from dynamics.dummy_dynamic_system import *
 from dynamics.pendulum_dynamic_system import *
+from dynamics.spining_square_dynamic_system import *

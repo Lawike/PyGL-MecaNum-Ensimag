@@ -43,6 +43,11 @@ Classe Square 2D
     Soit on part sur une pos relative (plus simple pour les calculs après) on définit juste le centre et on calcul.
     On doit calculer M (la matrice) et J (le moment d'inertie)
     (vertex, longueur...)
-
+    S c'est une fonction qui transforme un vec3 en matrix3,3 
+    On a xg la position du centre de masse
+    La masse est uniformément répartie
+    On calcule la distance de chaque vertex par rapport au centre de masse (xg)
+    Omega c'est la vitesse angulaire.
+    
 Classe RigidBody
     On doit décrire xg et theta

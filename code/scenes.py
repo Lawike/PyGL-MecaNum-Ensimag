@@ -106,3 +106,35 @@ def rodTest(viewer):
     rodRenderableScaled.modelMatrix[0, 0] = 2.   # scale in X
     rodRenderableScaled.modelMatrix[1, 1] = 0.75 # scale in Y
     viewer.addRenderable(rodRenderableScaled)
+
+
+def spiningSquare(viewer):
+    """
+    @brief Demonstration for a spinng square
+    """
+
+    # Indexed square
+    positions = np.array([0., 0.,   # x0, y0
+                          1., 0.,   # x1, y1
+                          0., 1.,   # x2, y2
+                          1., 1.],  # x3, y3
+                         np.float64)
+
+    colours = np.array([1., 0.5, 1.,   # (r, g, b) for vertex 0
+                        0.5, 0.5, 1.,  # (r, g, b) for vertex 1
+                        0.5, 1., 0.5,  # (r, g, b) for vertex 1
+                        1., 0.5, 0.5]) # (r, g, b) for vertex 1
+
+    indices = np.array([0, 1, 2,   # First triangle composed by vertices 0, 1 and 2
+                        1, 2, 3])  # Second triangle composed by vertices 1, 2 and 3
+
+    # Creating the square
+    squareMesh = Mesh2D(positions, indices, colours)
+    squareMeshRenderable = Mesh2DRenderable(squareMesh)
+    viewer.addRenderable(squareMeshRenderable)
+
+    # Creating a spining square dynamic system
+    spiningSquare = SpiningSquareDynamicSystem(squareMesh)
+    viewer.addDynamicSystem(spiningSquare)
+
+
